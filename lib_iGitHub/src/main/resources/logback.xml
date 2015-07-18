@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <param name="ConversionPattern" value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}] %c{3} - %m%n" />
+        </layout>
+    </appender>
+
+    <!-- File Appender -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="File" value="rest-sample.log"/>
+        <param name="MaxFileSize" value="10000KB"/>
+        <param name="MaxBackupIndex" value="20"/>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <param name="ConversionPattern" value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}] %c{3} - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.springframework.beans">
+        <level value="warn" />
+    </logger>
+
+    <logger name="org.springframework.web">
+        <level value="debug" />
+    </logger>
+
+	<logger name="org.codehaus.jackson">
+        <level value="debug" />
+    </logger>
+
+	<logger name="com.com.cts.bpi.*">
+        <level value="info" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root value="info" >
+        <appender-ref ref="console" />
+    </root>
+
+</configuration>
